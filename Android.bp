@@ -15,7 +15,7 @@ android_app {
     privileged: true,
 
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        //proguard_flags_files: ["proguard.flags"],
     },
 
     static_libs: [
@@ -30,14 +30,14 @@ android_app {
     ],
 
     required: [
-        "privapp_whitelist_org.lineageos.lineageparts"
+        "privapp_whitelist_chitangui.chitangui"
     ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_org.lineageos.lineageparts",
+    name: "privapp_whitelist_chitangui.chitangui",
     system_ext_specific: true,
     sub_dir: "permissions",
-    src: "privapp_whitelist_org.lineageos.lineageparts.xml",
+    src: "privapp_whitelist_chitangui.chitangui.xml",
     filename_from_src: true,
 }
