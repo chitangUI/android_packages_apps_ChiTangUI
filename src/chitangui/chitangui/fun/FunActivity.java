@@ -39,7 +39,7 @@ public class FunActivity extends Activity {
     public class JavaScriptInterface {
 
         @JavascriptInterface
-        public float poweroff() {
+        public void poweroff() {
             Intent intent = new Intent(Intent.ACTION_REQUEST_SHUTDOWN);
             intent.putExtra(Intent.EXTRA_KEY_CONFIRM, false);
             intent.putExtra(Intent.EXTRA_REASON, "chitangui_fun");
