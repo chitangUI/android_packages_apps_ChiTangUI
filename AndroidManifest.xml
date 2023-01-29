@@ -22,8 +22,7 @@
         android:directBootAware="true">
 
         <activity android:name=".fun.FunActivity"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen"
-            android:configChanges="orientation|keyboardHidden">
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />

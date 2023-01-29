@@ -2,13 +2,10 @@ package chitangui.chitangui.fun;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 public class FunActivity extends Activity {
 
@@ -19,34 +16,20 @@ public class FunActivity extends Activity {
         FrameLayout layout = new FrameLayout(this);
         setContentView(layout);
 
-        {
-            WebView webView = new WebView(this);
-            webView.loadUrl("file:///android_assets/fun.html");
-            webView.setWebViewClient(new WebViewClient(){
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    view.loadUrl(url);
-                    return true;
-                }
-            });
-            webView.getSettings().setJavaScriptEnabled(true);
-            webView.addJavascriptInterface(new JavaScriptInterface(), "chitangui_fun");
-
-            layout.addView(webView);
-        }
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("chitangui.chitangui_unpriv", "chitangui.chitangui_unpriv.fun.FunActivity"));
+        startActivityForResult(intent, 1);
     }
 
-    public class JavaScriptInterface {
-
-        @JavascriptInterface
-        public void poweroff() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == 1) {
             Intent intent = new Intent(Intent.ACTION_REQUEST_SHUTDOWN);
             intent.putExtra(Intent.EXTRA_KEY_CONFIRM, false);
             intent.putExtra(Intent.EXTRA_REASON, "chitangui_fun");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-
     }
 
 }
