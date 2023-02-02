@@ -30,6 +30,7 @@ public class FunActivity extends Activity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+        finishActivity(0);
     }
 
 }
